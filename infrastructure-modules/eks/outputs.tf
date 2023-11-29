@@ -1,3 +1,3 @@
 output "eks_name" {
-    value = aws_eks_cluster.this.name  
+  value = aws_eks_cluster.this.name
 }
