@@ -1,7 +1,7 @@
 module "eks" {
   source = "../../infrastructure-modules/eks"
 
-  env         = "dev"
+  env         = var.env
   eks_name    = "demo"
   eks_version = "1.26"
   subnet_ids  = var.private_subnet_ids

@@ -2,7 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-
 terraform {
   backend "s3" {
     profile  = "devops"
@@ -18,13 +17,16 @@ terraform {
 
 module "vpc" {
   source = "./vpc"
+  env    = var.env
 }
 
 module "eks" {
   source             = "./eks"
   private_subnet_ids = module.vpc.private_subnet_ids
+  env                = var.env
 }
 
 module "s3" {
   source = "./s3"
+  env    = var.env
 }
