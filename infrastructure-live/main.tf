@@ -24,3 +24,7 @@ module "eks" {
     source = "./eks"
     private_subnet_ids = module.vpc.private_subnet_ids
 }
+
+module "s3" {
+    source = "./s3"
+}

@@ -3,9 +3,8 @@ module "eks" {
 
 	env         = "dev"
 	eks_name    = "demo"
-	eks_version = "1.21"
+	eks_version = "1.26"
 	subnet_ids = var.private_subnet_ids
-	# enable_irsa = false
 
 	node_groups = {
 		general = {
