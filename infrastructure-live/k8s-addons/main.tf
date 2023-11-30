@@ -1,9 +1,9 @@
 data "aws_eks_cluster" "eks" {
-    name = "dev-demo"
+  name = "dev-demo"
 }
 
 data "aws_eks_cluster_auth" "eks" {
-    name = "dev-demo"
+  name = "dev-demo"
 }
 
 provider "helm" {
@@ -21,10 +21,10 @@ provider "helm" {
 module "k8s-addons" {
   source = "../../infrastructure-modules/k8s-addons"
 
-    env = var.env
-    eks_name = var.eks_name
-    enable_cluster_autoscaler = true
-    cluster_autoscaler_helm_verion = "9.28.0"
+  env                            = var.env
+  eks_name                       = var.eks_name
+  enable_cluster_autoscaler      = true
+  cluster_autoscaler_helm_verion = "9.28.0"
 
-    openid_provider_arn = var.openid_provider_arn
+  openid_provider_arn = var.openid_provider_arn
 }

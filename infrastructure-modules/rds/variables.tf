@@ -59,14 +59,14 @@ variable "monitoring_interval" {
 }
 
 variable "multi-az" {
-    description = "Specifies if the RDS instance is multi-AZ."
-    type        = bool
-    default     = true
+  description = "Specifies if the RDS instance is multi-AZ."
+  type        = bool
+  default     = true
 }
 
 variable "security_group_ids" {
   description = "List of security group IDs to apply to the RDS instance."
   type        = list(string)
   default     = []
-  
+
 }

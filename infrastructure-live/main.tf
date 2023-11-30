@@ -27,9 +27,9 @@ module "eks" {
 }
 
 module "k8s-addons" {
-  source = "./k8s-addons"
-  env    = var.env
-  eks_name = module.eks.eks_name
+  source              = "./k8s-addons"
+  env                 = var.env
+  eks_name            = module.eks.eks_name
   openid_provider_arn = module.eks.openid_provider_arn
 }
 
@@ -44,8 +44,8 @@ module "s3" {
 }
 
 module "rds" {
-  source = "./rds"
-  env = var.env
+  source             = "./rds"
+  env                = var.env
   private_subnet_ids = module.vpc.private_subnet_ids
   security_group_ids = module.eks.eks_security_group_id
 }
