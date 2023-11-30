@@ -33,9 +33,3 @@ variable "node_groups" {
   description = "EKS node groups"
   type        = map(any)
 }
-
-# variable "enable_irsa" {
-#     description = "Determines whether to create an OpenID Connect Provider for EKS to enable IRSA"
-#     type        = bool
-#     default     = true
-# }

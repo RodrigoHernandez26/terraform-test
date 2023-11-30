@@ -26,7 +26,19 @@ module "eks" {
   env                = var.env
 }
 
+module "ecr" {
+  source = "./ecr"
+  env    = var.env
+}
+
 module "s3" {
   source = "./s3"
   env    = var.env
+}
+
+module "k8s-addons" {
+  source = "./k8s-addons"
+  env    = var.env
+  eks_name = module.eks.eks_name
+  openid_provider_arn = module.eks.openid_provider_arn
 }
