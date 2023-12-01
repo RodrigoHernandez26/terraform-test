@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rds-sample-deployment
+  name: docdb-sample-deployment
   labels:
-    app: rds-sample
+    app: docdb-sample
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rds-sample
+      app: docdb-sample
   template:
     metadata:
       labels:
-        app: rds-sample
+        app: docdb-sample
     spec:
       containers:
-      - name: rds-sample
-        image: 295439051676.dkr.ecr.us-east-1.amazonaws.com/dev-rds-sample-project:latest
+      - name: docdb-sample
+        image: 295439051676.dkr.ecr.us-east-1.amazonaws.com/dev-docdb-sample-project:latest
         ports:
         - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: rds-sample-service-loadbalancer
+  name: docdb-sample-service-loadbalancer
 spec:
   type: LoadBalancer
   selector:
-    app: rds-sample
+    app: docdb-sample
   ports:
     - protocol: TCP
       port: 3000

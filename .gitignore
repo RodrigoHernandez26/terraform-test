@@ -33,4 +33,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 .terraform.lock.hcl
-rds-sample
+node_modules
+package-lock.json

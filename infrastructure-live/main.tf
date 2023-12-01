@@ -49,3 +49,10 @@ module "rds" {
   private_subnet_ids = module.vpc.private_subnet_ids
   security_group_ids = module.eks.eks_security_group_id
 }
+
+module "documentdb" {
+  source             = "./documentdb"
+  env                = var.env
+  private_subnet_ids = module.vpc.private_subnet_ids
+  security_group_ids = module.eks.eks_security_group_id
+}
