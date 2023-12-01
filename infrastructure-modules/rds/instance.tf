@@ -1,5 +1,6 @@
 resource "aws_db_instance" "this" {
   allocated_storage   = var.allocated_storage
+  db_name             = var.initial_db_name
   engine              = var.engine
   instance_class      = var.instance_class
   username            = var.username
@@ -17,6 +18,8 @@ resource "aws_db_instance" "this" {
   db_subnet_group_name   = aws_db_subnet_group.subnet_group.name
 
   multi_az = var.multi-az
+
+  parameter_group_name = aws_db_parameter_group.parameter_rds.name
 
   depends_on = [aws_iam_policy_attachment.rds_monitoring_attachment]
 }

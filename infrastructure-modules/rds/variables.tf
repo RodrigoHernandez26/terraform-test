@@ -68,5 +68,9 @@ variable "security_group_ids" {
   description = "List of security group IDs to apply to the RDS instance."
   type        = list(string)
   default     = []
+}
 
+variable "initial_db_name" {
+  description = "The name of the initial database of this instance that was provided at create time, if one was specified."
+  type        = string
 }

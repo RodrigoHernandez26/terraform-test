@@ -3,6 +3,7 @@ module "rds" {
 
   env                 = var.env
   name                = "rds-test"
+  initial_db_name     = "testdb"
   allocated_storage   = 20
   engine              = "postgres"
   instance_class      = "db.t3.micro"
