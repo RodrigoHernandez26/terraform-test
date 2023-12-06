@@ -1,17 +1,17 @@
 variable "env" {
-    description = "Environment name"
-    type    = string
+  description = "Environment name"
+  type        = string
 }
 
 variable "name" {
-    description = "Name of the cluster"
-  type    = string
+  description = "Name of the cluster"
+  type        = string
 }
 
 variable "version" {
   description = "Kafka version"
-    type    = string
-    default = "3.3.2"
+  type        = string
+  default     = "3.3.2"
 }
 
 variable "subnet_ids" {
@@ -22,7 +22,7 @@ variable "subnet_ids" {
 variable "instance_class" {
   description = "The instance type of the RDS instance."
   type        = string
-  default = "kafka.t3.small"
+  default     = "kafka.t3.small"
 }
 
 variable "storage_per_broker" {
@@ -35,4 +35,9 @@ variable "security_group_ids" {
   description = "List of security group IDs to apply to the RDS instance."
   type        = list(string)
   default     = []
+}
+
+variable "cloudwatch_log" {
+  type    = bool
+  default = false
 }
