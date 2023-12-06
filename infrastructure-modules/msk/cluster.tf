@@ -8,7 +8,7 @@ resource "aws_cloudwatch_log_group" "kafka_log_group" {
 }
 
 resource "aws_msk_configuration" "kafka_config" {
-  kafka_versions    = [var.version]
+  kafka_versions    = [var.cluster_version]
   name              = "${var.env}-${var.name}-config"
   server_properties = <<EOF
 auto.create.topics.enable = true
@@ -18,7 +18,7 @@ EOF
 
 resource "aws_msk_cluster" "kafka" {
   cluster_name           = "${var.env}-${var.name}"
-  kafka_version          = var.version
+  kafka_version          = var.cluster_version
   number_of_broker_nodes = length(var.subnet_ids)
 
   broker_node_group_info {
@@ -30,8 +30,8 @@ resource "aws_msk_cluster" "kafka" {
       }
     }
 
-    client_subnets  = [var.subnet_ids[*].id]
-    security_groups = [var.security_group_ids[*].id]
+    client_subnets  = var.subnet_ids
+    security_groups = var.security_group_ids
   }
 
   encryption_info {

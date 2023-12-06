@@ -5,9 +5,12 @@ module "sg_kafka" {
   name   = "sg-kafka"
   vpc_id = var.vpc_id
 
-  ingress_rules = {
-    from_port = 0
-    to_port   = 9092
-    protocol  = "TCP"
-  }
+  ingress_rules = [
+    {
+      from_port = 0
+      to_port   = 9092
+      protocol  = "TCP"
+      cidr_ipv4 = "0.0.0.0/0"
+    }
+  ]
 }

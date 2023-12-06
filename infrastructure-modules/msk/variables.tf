@@ -8,7 +8,7 @@ variable "name" {
   type        = string
 }
 
-variable "version" {
+variable "cluster_version" {
   description = "Kafka version"
   type        = string
   default     = "3.3.2"

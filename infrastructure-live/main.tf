@@ -64,3 +64,17 @@ module "ecr" {
 #   private_subnet_ids = module.vpc.private_subnet_ids
 #   security_group_ids = module.eks.eks_security_group_id
 # }
+
+module "sg" {
+  source = "./sg"
+  env    = var.env
+  vpc_id = module.vpc.vpc_id
+}
+
+module "msk" {
+  source = "./msk"
+  env = var.env
+  vpc_id = module.vpc.vpc_id
+  private_subnet_ids = module.vpc.private_subnet_ids
+  security_group_ids = [module.eks.eks_security_group_id, module.sg.sg_id]
+}

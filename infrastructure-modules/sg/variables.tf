@@ -11,14 +11,13 @@ variable "vpc_id" {
 }
 
 variable "ingress_rules" {
-  type = map(any)
+  type = list(any)
 }
 
 variable "egress_rules" {
-  type = map(any)
+  type = list(any)
   default = [{
     protocol  = "-1"
-    cidr_ipv4 = ["0.0.0.0/0"]
-    cidr_ipv6 = ["::/0"]
+    cidr_ipv4 = "0.0.0.0/0"
   }]
 }
